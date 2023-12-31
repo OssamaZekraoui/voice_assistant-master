@@ -1,5 +1,6 @@
 import 'package:allen/home_page.dart';
 import 'package:allen/pallete.dart';
+import 'package:allen/signup_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -50,6 +51,13 @@ class _LoginScreenState extends State<LoginScreen> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (context) => HomePage()),
+    );
+  }
+
+  void _navigateToSinUpScreen() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => SignUp()),
     );
   }
 
@@ -201,11 +209,14 @@ class _LoginScreenState extends State<LoginScreen> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Text(
-                        'Sign up now',
-                        style: GoogleFonts.robotoCondensed(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.lightBlue
+                      GestureDetector(
+                        onTap: _navigateToSinUpScreen,
+                        child:Text(
+                          'Sign up now',
+                          style: GoogleFonts.robotoCondensed(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.lightBlue
+                          ),
                         ),
                       ),
                     ],
